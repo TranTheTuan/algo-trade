@@ -10,6 +10,7 @@ import (
 
 func equalWeightStrategy() {
 	var spIndex []model.EqualWeightStock
+	stockStrings := [][]string{{"Ticker", "Price", "MarketCap", "ShareToBuy"}}
 	// divide stocks slices into chunks and join them to string slice
 	stockChunk := util.ChunkingSlice(stocks[1:], chunkSize)
 	var stockString []string
@@ -55,8 +56,8 @@ func equalWeightStrategy() {
 		stockIndex[i] = &spIndex[i]
 	}
 	// export to csv
-	stockStructString := util.StructToString(stockIndex)
-	err = util.WriteToCSV(stockStructString)
+	stockStructString := util.StructToString(stockIndex, stockStrings)
+	err = util.WriteToCSV(stockStructString, "database/SP_Index.csv")
 	fmt.Println("Writing data to file SP_Index.csv")
 	if err != nil {
 		panic(err)

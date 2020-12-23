@@ -6,8 +6,12 @@ import (
 	"github.com/TranTheTuan/algo-trade/util"
 )
 
+const (
+	chunkSize   = 100
+	numOfShares = 50
+)
+
 var (
-	chunkSize = 100
 	portfolio int
 	iexKey    string
 	err       error

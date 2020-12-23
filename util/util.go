@@ -27,8 +27,8 @@ func ReadFromCSV(path string) ([][]string, error) {
 }
 
 // WriteToCSV writes data to file csv
-func WriteToCSV(data [][]string) error {
-	file, err := os.Create("database/SP_Index.csv")
+func WriteToCSV(data [][]string, path string) error {
+	file, err := os.Create(path)
 	if err != nil {
 		return err
 	}
@@ -87,8 +87,7 @@ func ReadFromInput() (input int, err error) {
 }
 
 // StructToString converts struct to string
-func StructToString(stocks []model.Stock) [][]string {
-	stockStrings := [][]string{{"Ticker", "Price", "MarketCap", "ShareToBuy"}}
+func StructToString(stocks []model.Stock, stockStrings [][]string) [][]string {
 	for _, v := range stocks {
 		stockStrings = append(stockStrings, v.ToString())
 	}
