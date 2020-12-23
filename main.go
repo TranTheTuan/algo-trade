@@ -3,15 +3,11 @@ package main
 import (
 	"fmt"
 	"github.com/TranTheTuan/algo-trade/config"
-	"github.com/TranTheTuan/algo-trade/model"
 	"github.com/TranTheTuan/algo-trade/util"
-	"log"
-	"net/http"
 )
 
 var (
 	chunkSize = 100
-	spIndex   []model.Stock
 	portfolio int
 	iexKey    string
 	err       error
@@ -32,9 +28,22 @@ func main() {
 		panic(err)
 	}
 
-	mux := http.NewServeMux()
-	mux.HandleFunc("/equal-weight", equalWeghtStrategy)
-	mux.HandleFunc("/quantitative-momentum", quantitativeMomentumStrategy)
-	mux.HandleFunc("/quantitative-value", quantitativeValueStrategy)
-	log.Fatal(http.ListenAndServe(":8080", mux))
+	fmt.Println("Please choose a strategy: ")
+	fmt.Println("1. Equal Weight S&P 500 Index Fund")
+	fmt.Println("2. Quantitative Momentum Strategy")
+	fmt.Println("3. Quantitative Value Strategy")
+	strategy, err := util.ReadFromInput()
+	if err != nil {
+		panic(err)
+	}
+	switch strategy {
+	case 1:
+		equalWeightStrategy()
+	case 2:
+		quantitativeMomentumStrategy()
+	case 3:
+		quantitativeValueStrategy()
+	default:
+		fmt.Println("Invalid input")
+	}
 }

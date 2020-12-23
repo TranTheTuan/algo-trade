@@ -79,8 +79,7 @@ func SendGetRequest(url string) (byteValue []byte, err error) {
 
 // ReadFromInput reads data from console input
 func ReadFromInput() (input int, err error) {
-	fmt.Print("Please enter your porfolio size:")
-	_, err = fmt.Scanf("%d", &input)
+	_, err = fmt.Scanln(&input)
 	if err != nil {
 		return 0, err
 	}

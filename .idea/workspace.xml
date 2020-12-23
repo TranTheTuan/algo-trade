@@ -20,8 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc191997-c52a-45ef-a695-d0c8b5b0792e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/equal-weight.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/ew-stock.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/SP_Index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/SP_Index.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/equal-weight.go" beforeDir="false" afterPath="$PROJECT_DIR$/equal-weight.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/stock.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/stock.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quantitative-momentum.go" beforeDir="false" afterPath="$PROJECT_DIR$/quantitative-momentum.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quantitative-value.go" beforeDir="false" afterPath="$PROJECT_DIR$/quantitative-value.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/util.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +56,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -73,5 +82,11 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="380" y="84" key="editAsTableFormatDialogDimension" timestamp="1608711438126">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="380" y="84" key="editAsTableFormatDialogDimension/0.0.1600.860@0.0.1600.860" timestamp="1608711438126" />
   </component>
 </project>

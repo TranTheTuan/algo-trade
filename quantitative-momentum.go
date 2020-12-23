@@ -1,7 +1,9 @@
 package main
 
-import "net/http"
+import (
+	"fmt"
+)
 
-func quantitativeMomentumStrategy(w http.ResponseWriter, r *http.Request) {
-
+func quantitativeMomentumStrategy() {
+	fmt.Println("quantitative momentum strategy")
 }

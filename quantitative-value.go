@@ -1,7 +1,9 @@
 package main
 
-import "net/http"
+import (
+	"fmt"
+)
 
-func quantitativeValueStrategy(w http.ResponseWriter, r *http.Request) {
-
+func quantitativeValueStrategy() {
+	fmt.Println("quantitative value strategy")
 }

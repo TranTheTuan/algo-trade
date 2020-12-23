@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"github.com/TranTheTuan/algo-trade/model"
 	"github.com/TranTheTuan/algo-trade/util"
-	"net/http"
 	"strings"
 )
 
-func equalWeghtStrategy(w http.ResponseWriter, r *http.Request) {
+func equalWeightStrategy() {
+	var spIndex []model.EqualWeightStock
 	// divide stocks slices into chunks and join them to string slice
 	stockChunk := util.ChunkingSlice(stocks[1:], chunkSize)
 	var stockString []string
@@ -25,7 +25,7 @@ func equalWeghtStrategy(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			panic(err)
 		}
-		var stockTmp map[string]map[string]model.Stock
+		var stockTmp map[string]map[string]model.EqualWeightStock
 		err = json.Unmarshal(body, &stockTmp)
 		if err != nil {
 			panic(err)
@@ -37,6 +37,7 @@ func equalWeghtStrategy(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// get porfolio size from input
+	fmt.Print("Please enter your portfolio size:")
 	portfolio, err = util.ReadFromInput()
 	if err != nil {
 		panic(err)
@@ -49,10 +50,14 @@ func equalWeghtStrategy(w http.ResponseWriter, r *http.Request) {
 		spIndex[i].CalculateShareToBuy(positionSize)
 	}
 
+	stockIndex := make([]model.Stock, len(spIndex))
+	for i := range spIndex {
+		stockIndex[i] = &spIndex[i]
+	}
 	// export to csv
-	stockStructString := util.StructToString(spIndex)
+	stockStructString := util.StructToString(stockIndex)
 	err = util.WriteToCSV(stockStructString)
-	fmt.Println("Writting data to file SP_Index.csv")
+	fmt.Println("Writing data to file SP_Index.csv")
 	if err != nil {
 		panic(err)
 	}
