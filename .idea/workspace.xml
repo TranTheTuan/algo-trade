@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc191997-c52a-45ef-a695-d0c8b5b0792e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/Q_Momentum_Index.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/qm-stock.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/algo-trade.exe" beforeDir="false" afterPath="$PROJECT_DIR$/algo-trade.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/equal-weight.go" beforeDir="false" afterPath="$PROJECT_DIR$/equal-weight.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Q_Momentum_Index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/Q_Momentum_Index.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/qm-stock.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/qm-stock.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quantitative-momentum.go" beforeDir="false" afterPath="$PROJECT_DIR$/quantitative-momentum.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/util.go" afterDir="false" />
     </list>
@@ -77,14 +75,15 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="380" y="84" width="998" height="691" key="editAsTableFormatDialogDimension" timestamp="1608717107412">
+    <state x="-90" y="84" width="1600" height="691" key="editAsTableFormatDialogDimension" timestamp="1608803246471">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="380" y="84" width="998" height="691" key="editAsTableFormatDialogDimension/0.0.1600.860@0.0.1600.860" timestamp="1608717107412" />
+    <state x="-90" y="84" width="1600" height="691" key="editAsTableFormatDialogDimension/0.0.1600.860@0.0.1600.860" timestamp="1608803246471" />
   </component>
 </project>

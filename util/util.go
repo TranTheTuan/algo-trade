@@ -2,8 +2,10 @@ package util
 
 import (
 	"encoding/csv"
+	"errors"
 	"fmt"
 	"io/ioutil"
+	"math"
 	"net/http"
 	"os"
 
@@ -92,4 +94,33 @@ func StructToString(stocks []model.Stock, stockStrings [][]string) [][]string {
 		stockStrings = append(stockStrings, v.ToString())
 	}
 	return stockStrings
+}
+
+// CalculatePercentile of an element in array
+func CalculatePercentile(arr []float64, value float64) (float64, error) {
+	length := float64(len(arr))
+	if length == 0 {
+		return math.NaN(), errors.New("the array is empty")
+	}
+	var cf, f float64 = 0, 0
+	for _, v := range arr {
+		if v <= value {
+			cf++
+			if v == value {
+				f ++
+			}
+		}
+	}
+	return (cf - (0.5*f))/length, nil
+}
+
+// GetPriceReturnArrays returns price return in periods of a quantitative stock array
+func GetPriceReturnArrays(qmstock []model.QuantitativeMomentumStock) (y1 []float64, m6 []float64, m3 []float64, m1 []float64) {
+	for i := range qmstock {
+		y1 = append(y1, qmstock[i].Stat.OneYearPriceReturn)
+		m6 = append(m6, qmstock[i].Stat.SixMonthPriceReturn)
+		m3 = append(m3, qmstock[i].Stat.ThreeMonthPriceReturn)
+		m1 = append(m1, qmstock[i].Stat.OneMonthPriceReturn)
+	}
+	return y1, m6, m3, m1
 }
