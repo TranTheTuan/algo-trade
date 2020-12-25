@@ -11,14 +11,12 @@ import (
 func equalWeightStrategy() {
 	var spIndex []model.EqualWeightStock
 	stockStrings := [][]string{{"Ticker", "Price", "MarketCap", "ShareToBuy"}}
-	// divide stocks slices into chunks and join them to string slice
 	stockChunk := util.ChunkingSlice(stocks[1:], chunkSize)
 	var stockString []string
 	for _, v := range stockChunk {
 		stockString = append(stockString, strings.Join(v, ","))
 	}
 
-	// make batch request
 	fmt.Println("Get stock data from iex cloud api")
 	for _, v := range stockString {
 		url := fmt.Sprintf("https://sandbox.iexapis.com/stable/stock/market/batch/?types=quote&symbols=%s&token=%s", v, iexKey)
@@ -37,14 +35,12 @@ func equalWeightStrategy() {
 		}
 	}
 
-	// get porfolio size from input
 	fmt.Print("Please enter your portfolio size:")
 	portfolio, err = util.ReadFromInput()
 	if err != nil {
 		panic(err)
 	}
 
-	// calculate number of share to buy for each stock
 	positionSize := portfolio / len(spIndex)
 	fmt.Println("Calculating number of share to buy for each stock")
 	for i := range spIndex {
@@ -55,10 +51,8 @@ func equalWeightStrategy() {
 	for i := range spIndex {
 		stockIndex[i] = &spIndex[i]
 	}
-	// export to csv
 	stockStructString := util.StructToString(stockIndex, stockStrings)
 	err = util.WriteToCSV(stockStructString, "database/SP_Index.csv")
-	fmt.Println("Writing data to file SP_Index.csv")
 	if err != nil {
 		panic(err)
 	}
