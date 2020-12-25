@@ -41,7 +41,7 @@ func quantitativeMomentumStrategy() {
 		}
 	}
 	// calculate percentile for each stock
-	var y1, m6, m3, m1 []float64 = util.GetPriceReturnArrays(spIndex)
+	var y1, m6, m3, m1 []float64 = util.GetQMPriceReturnArrays(spIndex)
 	for i := range spIndex {
 		y1Percentile, err := util.CalculatePercentile(y1, spIndex[i].Stat.OneYearPriceReturn)
 		if err != nil {
@@ -63,8 +63,7 @@ func quantitativeMomentumStrategy() {
 			panic(err)
 		}
 		spIndex[i].Stat.OneMonthReturnPercentile = m1Percentile
-	}
-	for i := range spIndex {
+
 		spIndex[i].CalculateHMQScore()
 	}
 	// sort by highest quantitative momentum score

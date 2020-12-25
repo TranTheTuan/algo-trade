@@ -90,8 +90,8 @@ func ReadFromInput() (input int, err error) {
 
 // StructToString converts struct to string
 func StructToString(stocks []model.Stock, stockStrings [][]string) [][]string {
-	for _, v := range stocks {
-		stockStrings = append(stockStrings, v.ToString())
+	for i := range stocks {
+		stockStrings = append(stockStrings, stocks[i].ToString())
 	}
 	return stockStrings
 }
@@ -107,15 +107,15 @@ func CalculatePercentile(arr []float64, value float64) (float64, error) {
 		if v <= value {
 			cf++
 			if v == value {
-				f ++
+				f++
 			}
 		}
 	}
-	return (cf - (0.5*f))/length, nil
+	return (cf - (0.5 * f)) / length, nil
 }
 
-// GetPriceReturnArrays returns price return in periods of a quantitative stock array
-func GetPriceReturnArrays(qmstock []model.QuantitativeMomentumStock) (y1 []float64, m6 []float64, m3 []float64, m1 []float64) {
+// GetQMPriceReturnArrays returns price return in periods of a quantitative momentum stock array
+func GetQMPriceReturnArrays(qmstock []model.QuantitativeMomentumStock) (y1 []float64, m6 []float64, m3 []float64, m1 []float64) {
 	for i := range qmstock {
 		y1 = append(y1, qmstock[i].Stat.OneYearPriceReturn)
 		m6 = append(m6, qmstock[i].Stat.SixMonthPriceReturn)
@@ -123,4 +123,16 @@ func GetPriceReturnArrays(qmstock []model.QuantitativeMomentumStock) (y1 []float
 		m1 = append(m1, qmstock[i].Stat.OneMonthPriceReturn)
 	}
 	return y1, m6, m3, m1
+}
+
+// GetQVRatioArrays return ratios of a quantitative value stock array
+func GetQVRatioArrays(qvstock []model.QuantitativeValueStock) (pe []float64, pb []float64, ps []float64, evebitda []float64, evgp []float64) {
+	for i := range qvstock {
+		pe = append(pe, qvstock[i].Stat.PERatio)
+		pb = append(pe, qvstock[i].Stat.PBRatio)
+		ps = append(pe, qvstock[i].Stat.PSRatio)
+		evebitda = append(pe, qvstock[i].Stat.EVEBITDA)
+		evgp = append(pe, qvstock[i].Stat.EVGrossProfit)
+	}
+	return pe, pb, ps, evebitda, evgp
 }
